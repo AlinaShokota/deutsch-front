@@ -1,32 +1,35 @@
 <app-navbar></app-navbar>
 
 <div class="container">
-    <form>
-        <div class="form-row">
 
+    <form (ngSubmit)="save()">
+        <div class="form-row">
             <div class="col-2">
                 <div class="md-form">
-                    <input mdbInput type="text" class="form-control" placeholder="article">
+                    <input mdbInput type="text" class="form-control" placeholder="Article" name="article"
+                        [(ngModel)]="noun.article">
                 </div>
             </div>
 
             <div class="col-5">
                 <div class="md-form">
-                    <input mdbInput type="text" class="form-control" placeholder="noun">
+                    <input mdbInput type="text" class="form-control" placeholder="Noun" name="word"
+                        [(ngModel)]="noun.word">
                 </div>
             </div>
 
             <div class="col-5">
                 <div class="md-form">
-                    <input mdbInput type="text" class="form-control" placeholder="translation">
+                    <input mdbInput type="text" class="form-control" placeholder="Translation" name="translation"
+                        [(ngModel)]="noun.translation">
                 </div>
             </div>
 
             <div class="col-5">
-                    <div class="md-form">
-                        <input mdbInput type="text" class="form-control" placeholder="png image url">
-                    </div>
+                <div class="md-form">
+                    <input mdbInput type="text" class="form-control" placeholder="Image URL" name="image" [(ngModel)]="noun.image">
                 </div>
+            </div>
 
         </div>
         <div class="form-group row">
@@ -35,4 +38,5 @@
             </div>
         </div>
     </form>
+
 </div>
