@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NounService } from 'src/app/service/noun.service';
+import { Noun } from 'src/app/model/noun';
 
 @Component({
   selector: 'app-nouns-cards',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NounsCardsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private nounService:NounService) { }
+
+  noun: Noun;
+  isTranslated = true;
 
   ngOnInit() {
+    this.getRandomWord();
+  }
+
+  getRandomWord(){
+    this.nounService.getRandom().subscribe(value => {
+      this.noun = value;
+      this.isTranslated = true;
+    })
+  }
+
+  getTranslation(){
+    this.isTranslated = false;
   }
 
 }
