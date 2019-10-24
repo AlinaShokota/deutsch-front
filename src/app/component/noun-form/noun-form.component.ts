@@ -13,6 +13,7 @@ export class NounFormComponent implements OnInit {
   constructor(private nounService:NounService, private route: ActivatedRoute) { }
 
   noun: Noun= new Noun();
+  categories: String[] = new Array();
 
   ngOnInit() {
     const idParam = this.route.snapshot.paramMap.get('id');
@@ -22,9 +23,15 @@ export class NounFormComponent implements OnInit {
         this.noun = value;
       });
     }
+    this.nounService.getCategories().subscribe(value => {
+      this.categories = value;
+    })
   }
 
   save(){
+    if(this.noun.category==null){
+      this.noun.category='no category';
+    }
     this.nounService.save(this.noun).subscribe(value => {
       window.location.href = '/noun-form';
     });

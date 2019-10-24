@@ -1,7 +1,19 @@
 <app-navbar></app-navbar>
 
 <div class="container">
-    <div class="card" style="width: 28rem;">
+
+    <form>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Select category</label>
+            <div class="col-sm-10">
+                <select class="form-control" placeholder="Category" name="category" [(ngModel)]="category">
+                    <option *ngFor="let category of categories">{{category}}</option>
+                </select>
+            </div>
+        </div>
+    </form>
+
+    <div class="card" style="width: 35rem;">
         <img [src]="noun.image" *ngIf="isTranslated" class="card-img-top" alt="...">
         <img [src]="noun.image" *ngIf="!isTranslated && noun.article=='der'" class="card-img-top" alt="..."
             style="background-color: rgba(137, 137, 230, 0.534);">
@@ -11,11 +23,11 @@
             style="background-color: pink;">
         <div class="card-body">
 
-
             <h3 class="card-title" *ngIf="isTranslated">{{noun.translation}}</h3>
-            <h3 class="card-title" *ngIf="!isTranslated">{{noun.article}} {{noun.word}}</h3>
-            <button class="btn btn-primary" (click)="getTranslation()">Show translation</button><br>
-            <button class="btn btn-primary" (click)="getRandomWord()">Next word</button>
+            <h3 class="card-title" *ngIf="!isTranslated">{{noun.article}} {{noun.word}}, {{noun.plural}}</h3>
+            <button class="btn btn-secondary" (click)="getTranslation()">Show translation</button>
+            <button class="btn btn-primary" (click)="getByCategory()">Next word</button>
+
         </div>
     </div>
 </div>

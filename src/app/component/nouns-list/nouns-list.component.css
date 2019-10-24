@@ -1,0 +1,13 @@
+.container {
+    margin-top: 3%;
+}
+
+  th, td {
+    border: 1px #dddddd;
+    height: 60px;
+    width: auto;
+  }
+
+  .filter {
+    display: block;
+  }

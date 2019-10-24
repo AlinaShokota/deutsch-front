@@ -14,6 +14,14 @@ export class NounService {
     return this.http.get<Noun[]>('http://localhost:8080/nouns/all');
   }
 
+  getCategories(): Observable<String[]> {
+    return this.http.get<String[]>('http://localhost:8080/nouns/categories');
+  }
+
+  getByCategory(category: string): Observable<Noun> {
+    return this.http.get<Noun>('http://localhost:8080/nouns/get/random/'+category);
+  }
+
   get(id: number): Observable<Noun> {
     return this.http.get<Noun>('http://localhost:8080/nouns/get/'+id);
   }

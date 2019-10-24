@@ -13,7 +13,9 @@ import { NounFormComponent } from './component/noun-form/noun-form.component';
 import { VerbsCardsComponent } from './component/verbs-cards/verbs-cards.component';
 import { VerbsListComponent } from './component/verbs-list/verbs-list.component';
 import { VerbFormComponent } from './component/verb-form/verb-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from './material-module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,10 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,5 +3,7 @@ export class Noun {
     article:string;
     word: string;
     translation: string;
-    image:String;
+    image:string;
+    plural: string;
+    category: string;
 }
