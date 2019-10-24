@@ -26,6 +26,10 @@ export class NounService {
     return this.http.post('http://localhost:8080/nouns/save', noun);
   }
 
+  update(noun: Noun): Observable<Object> {
+    return this.http.put('http://localhost:8080/nouns/update', noun);
+  }
+
   delete(id: number): Observable<Noun> {
     return this.http.delete<Noun>('http://localhost:8080/nouns/delete/'+id);
   }

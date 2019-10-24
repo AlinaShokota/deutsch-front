@@ -21,6 +21,9 @@ export class NounsCardsComponent implements OnInit {
   getRandomWord(){
     this.nounService.getRandom().subscribe(value => {
       this.noun = value;
+      if(this.noun.image===null){
+        this.noun.image = 'https://cdn4.iconfinder.com/data/icons/basic-12/614/13_-_Question-256.png';
+      }
       this.isTranslated = true;
     })
   }

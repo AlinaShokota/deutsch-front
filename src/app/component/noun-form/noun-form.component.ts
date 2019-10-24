@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NounService } from 'src/app/service/noun.service';
 import { Noun } from 'src/app/model/noun';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-noun-form',
@@ -9,17 +10,23 @@ import { Noun } from 'src/app/model/noun';
 })
 export class NounFormComponent implements OnInit {
 
-  constructor(private nounService:NounService) { }
+  constructor(private nounService:NounService, private route: ActivatedRoute) { }
 
-  noun: Noun;
+  noun: Noun= new Noun();
 
   ngOnInit() {
-    this.noun = new Noun();
+    const idParam = this.route.snapshot.paramMap.get('id');
+    const id: number = parseInt(idParam, 10);
+    if (id) {
+      this.nounService.get(id).subscribe(value => {
+        this.noun = value;
+      });
+    }
   }
 
   save(){
     this.nounService.save(this.noun).subscribe(value => {
-      window.location.href = '/home';
+      window.location.href = '/noun-form';
     });
   }
 

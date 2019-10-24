@@ -1,3 +1,31 @@
 <app-navbar></app-navbar>
 
-<p>nouns-list works!</p>
+<div class="contsiner">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Noun</th>
+                <th scope="col">Translation</th>
+                <th scope="col">Modify</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let noun of nouns">
+                <td>{{noun.article}} {{noun.word}}</td>
+                <td>{{noun.translation}}</td>
+                <td> 
+                        <button class="btn" (click)="modify(noun.id)">
+                            <i class="fas fa-pen-alt"></i>
+                        </button>
+                    </td>
+                <td> 
+                    <button class="btn" (click)="delete(noun.id)">
+                        <mdb-icon far icon="trash-alt" class="pink-text"></mdb-icon>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

@@ -14,9 +14,11 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'nouns-cards', component: NounsCardsComponent },
   { path: 'noun-form', component: NounFormComponent },
+  { path: 'noun-form/:id', component: NounFormComponent },
   { path: 'nouns-list', component: NounsListComponent },
   { path: 'verbs-cards', component: VerbsCardsComponent },
   { path: 'verb-form', component: VerbFormComponent },
+  { path: 'verb-form/:id', component: VerbFormComponent },
   { path: 'verbs-list', component: VerbsListComponent }
 ];
 

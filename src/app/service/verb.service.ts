@@ -26,6 +26,10 @@ export class VerbService {
     return this.http.post('http://localhost:8080/verbs/save', verb);
   }
 
+  update(verb: Verb): Observable<Object> {
+    return this.http.put('http://localhost:8080/verbs/update', verb);
+  }
+
   delete(id: number): Observable<Verb> {
     return this.http.delete<Verb>('http://localhost:8080/verbs/delete/'+id);
   }
